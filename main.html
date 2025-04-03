@@ -1,175 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compact Gallery Using Bootstrap</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Bootstrap Card Example</title>
+    <!-- Bootstrap 4.3.1 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Custom styles for the gallery */
-        .cards-gallery h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .card {
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-        }
+        /* Custom styles to match the image */
         .card-img-top {
-            cursor: pointer;
+            width: 100%;
             height: 200px;
             object-fit: cover;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
         }
-        .card-body {
-            text-align: center;
+        .card {
+            border-radius: 0.25rem;
+            overflow: hidden;
         }
-        .card-title {
-            font-size: 1rem;
-        }
-        .card-text {
-            font-size: 0.9rem;
-        }
-        /* Lightbox styles for each card */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-        .lightbox.active {
-            display: flex;
+        .card-header {
+            border-bottom: none; /* Remove border to match the image */
         }
     </style>
 </head>
+
 <body>
-    <!-- Gallery Section -->
-    <section class="cards-gallery py-5">
-        <!-- Heading -->
-        <h2>Cards Gallery</h2>
-        <!-- Container with a single row -->
-        <div class="container">
-            <div class="row">
-                <!-- Card 1 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="card">
-                        <img src="https://picsum.photos/300/200?random=1" class="card-img-top" alt="Image 1" data-large="https://picsum.photos/800/600?random=1">
-                        <div class="card-body">
-                            <h6 class="card-title">Nature View 1</h6>
-                            <p class="card-text">A beautiful landscape with mountains and a clear sky.</p>
-                        </div>
-                    </div>
-                    <div class="lightbox" data-lightbox-for="card-1">
-                        <img src="" alt="Lightbox Image">
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="card">
-                        <img src="https://picsum.photos/300/200?random=2" class="card-img-top" alt="Image 2" data-large="https://picsum.photos/800/600?random=2">
-                        <div class="card-body">
-                            <h6 class="card-title">Cityscape 2</h6>
-                            <p class="card-text">A vibrant city skyline at dusk.</p>
-                        </div>
-                    </div>
-                    <div class="lightbox" data-lightbox-for="card-2">
-                        <img src="" alt="Lightbox Image">
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="card">
-                        <img src="https://picsum.photos/300/200?random=3" class="card-img-top" alt="Image 3" data-large="https://picsum.photos/800/600?random=3">
-                        <div class="card-body">
-                            <h6 class="card-title">Ocean Waves 3</h6>
-                            <p class="card-text">Waves crashing on a sandy beach.</p>
-                        </div>
-                    </div>
-                    <div class="lightbox" data-lightbox-for="card-3">
-                        <img src="" alt="Lightbox Image">
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="card">
-                        <img src="https://picsum.photos/300/200?random=4" class="card-img-top" alt="Image 4" data-large="https://picsum.photos/800/600?random=4">
-                        <div class="card-body">
-                            <h6 class="card-title">Forest Path 4</h6>
-                            <p class="card-text">A serene path through a dense forest.</p>
-                        </div>
-                    </div>
-                    <div class="lightbox" data-lightbox-for="card-4">
-                        <img src="" alt="Lightbox Image">
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="card">
-                        <img src="https://picsum.photos/300/200?random=5" class="card-img-top" alt="Image 5" data-large="https://picsum.photos/800/600?random=5">
-                        <div class="card-body">
-                            <h6 class="card-title">Sunset Glow 5</h6>
-                            <p class="card-text">A stunning sunset over the horizon.</p>
-                        </div>
-                    </div>
-                    <div class="lightbox" data-lightbox-for="card-5">
-                        <img src="" alt="Lightbox Image">
-                    </div>
-                </div>
-                <!-- Card 6 -->
-                <div class="col-md-4 col-sm-6">
-                    <div class="card">
-                        <img src="https://picsum.photos/300/200?random=6" class="card-img-top" alt="Image 6" data-large="https://picsum.photos/800/600?random=6">
-                        <div class="card-body">
-                            <h6 class="card-title">Mountain Peak 6</h6>
-                            <p class="card-text">A snow-capped mountain under a blue sky.</p>
-                        </div>
-                    </div>
-                    <div class="lightbox" data-lightbox-for="card-6">
-                        <img src="" alt="Lightbox Image">
-                    </div>
-                </div>
+    <!-- Container for the cards -->
+    <div class="container my-4">
+        <!-- Card 1 -->
+        <div class="card bg-light mb-4">
+            <div class="card-header">
+                <h2 class="card-title mb-0">Welcome to Sync5</h2>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">New Features</h6>
+                <h5 class="card-title">Mobile and Tablet support</h5>
+                <p class="card-text">With this new update you will be able to sync your work across a large number of platforms.</p>
+                <a href="#" class="btn btn-primary">Read more</a>
             </div>
         </div>
-    </section>
 
-    <!-- Bootstrap 5 JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Lightbox JavaScript -->
-    <script>
-        // Lightbox functionality for each card
-        const images = document.querySelectorAll('.card-img-top');
-        const lightboxes = document.querySelectorAll('.lightbox');
+        <!-- Card 2 -->
+        <div class="card bg-danger text-white">
+            <div class="card-header">
+                <h6 class="card-subtitle mb-2">Alert</h6>
+                <h5 class="card-title">Node Dead</h5>
+                <p class="card-text">Node 5 (east-us) is offline for the last 12 days.</p>
+            </div>
+            <img src="https://picsum.photos/600/200?random=1" class="card-img-top" alt="Underwater Scene">
+            <div class="card-body bg-light text-dark">
+                <h5 class="card-title">President under Pressure</h5>
+                <p class="card-text">The US president is under pressure to respond to a widespread cyber-attack linked to China.</p>
+                <p class="card-text"><small class="text-muted">Last updated 12 mins ago</small></p>
+            </div>
+        </div>
+    </div>
 
-        images.forEach((image, index) => {
-            image.addEventListener('click', () => {
-                const largeImage = image.getAttribute('data-large');
-                const lightbox = lightboxes[index];
-                lightbox.querySelector('img').src = largeImage;
-                lightbox.classList.add('active');
-            });
-        });
-
-        // Close lightbox when clicking outside the image
-        lightboxes.forEach(lightbox => {
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    lightbox.classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <!-- Bootstrap 4.3.1 JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
 </body>
+
 </html>
